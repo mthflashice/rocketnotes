@@ -1,9 +1,11 @@
-import {Container} from 'styles';
+// import {Container} from 'styles';
+import { Container } from "./styles";
 
-export default function ButtonText ({title, ...rest}){
+
+export  function ButtonText ({title, ...rest}){
     return(
         <Container
-            type='button'
+            type= 'button'
             {...rest}
         >
             {title}

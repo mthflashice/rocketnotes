@@ -5,7 +5,7 @@ import { Button } from '../../components/Button';
 
 import { Section } from "../../components/Section";
 import { Tag } from "../../components/Tag";
-// import { ButtonText } from '../../components/ButtonText';
+ import {ButtonText} from '../../components/ButtonText'
 
 
 
@@ -17,7 +17,7 @@ import { Tag } from "../../components/Tag";
     <Container>
       <Header />
 
-      {/* <ButtonText title='Excluir Nota'/> */}
+      <ButtonText title='Excluir Nota'/>
       <Section title = 'Links úteis'>
         <Links>
         <li><a href='#'>https://www.rocketseat.com.br/</a></li>
