@@ -5,7 +5,7 @@ import { Button } from "../../components/Button";
 
 
 
-export default function Profile(){
+export  function Profile(){
     return(
         <Container>
             <header>

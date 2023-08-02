@@ -12,7 +12,7 @@ import { Section } from '../../components/Section';
 
 
 
-export default function Home(){
+export  function Home(){
     return(
         <Container>
             <Brand>
