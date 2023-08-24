@@ -32,8 +32,8 @@ function AuthProvider ({children}){
          }    
 
          useEffect (()=>{
-            const token = localStorage.getItem('@rocknotes:user');
-            const user = localStorage.getItem('@rocknotes:token');
+            const token = localStorage.getItem('@rocknotes:token');
+            const user = localStorage.getItem('@rocknotes:user');
 
             if(token && user){
                 api.defaults.headers.authorization = `Bearer${token}`;
