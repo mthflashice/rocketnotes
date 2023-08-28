@@ -32,7 +32,7 @@ function AuthProvider ({children}){
          }    
 
         function signOut(){
-       localStorage.removeIte('@rocknotes:token');
+       localStorage.removeItem('@rocknotes:token');
        localStorage.removeItem('@rocknotes:user');
 
        setData({});
