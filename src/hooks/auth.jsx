@@ -31,6 +31,13 @@ function AuthProvider ({children}){
             }
          }    
 
+        function signOut(){
+       localStorage.removeIte('@rocknotes:token');
+       localStorage.removeItem('@rocknotes:user');
+
+       setData({});
+    }
+
          useEffect (()=>{
             const token = localStorage.getItem('@rocknotes:token');
             const user = localStorage.getItem('@rocknotes:user');
@@ -48,7 +55,12 @@ function AuthProvider ({children}){
          },[]); //vetor 
 
     return (
-        <AuthContext.Provider value = {{signIn, user: data.user}}>
+        <AuthContext.Provider value = {{
+            signIn,
+            signOut,
+            
+            user:data.user,
+         }}>
             {children}               
         </AuthContext.Provider>
 
