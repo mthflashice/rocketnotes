@@ -18,7 +18,7 @@ function AuthProvider ({children}){
              localStorage.setItem('@rocknotes:token', token);
 
              
-             api.defaults.headers.authorization = `Bearer ${token}`;
+             api.defaults.headers.common['Authorization'] = `Bearer${token}`;
              setData({user, token})
 
 
@@ -43,7 +43,7 @@ function AuthProvider ({children}){
             const user = localStorage.getItem('@rocknotes:user');
 
             if(token && user){
-                api.defaults.headers.authorization = `Bearer${token}`;
+                api.defaults.headers.common['Authorization'] = `Bearer${token}`;
 
                 setData({
                     token,
