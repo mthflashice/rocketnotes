@@ -34,9 +34,28 @@ function AuthProvider ({children}){
         function signOut(){
        localStorage.removeItem('@rocknotes:token');
        localStorage.removeItem('@rocknotes:user');
+       setData({})
+        };
 
-       setData({});
-    }
+       async function updateProfile({user}){
+        try{
+            await api.put('/users,', user);
+            localStorage.setItem('@rocknotes:user', JSON.stringify(user));
+
+            setData({user,token:data.token})
+            alert('Perfil Atualizado!!');
+
+             }catch(error){
+             if(error.response){
+              alert (error.response.data.message);
+             }else{
+              alert('Não foi possível atualizar o perfil ')
+             }
+            }
+       }
+
+    
+    
 
          useEffect (()=>{
             const token = localStorage.getItem('@rocknotes:token');
@@ -58,6 +77,7 @@ function AuthProvider ({children}){
         <AuthContext.Provider value = {{
             signIn,
             signOut,
+            updateProfile,
             
             user:data.user,
          }}>
