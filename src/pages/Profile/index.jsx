@@ -21,7 +21,7 @@ export  function Profile(){
             name,
             email,
             password: passwordNew,
-            old_passwordOld: passwordOld
+            old_passwordOld: passwordOld,
 
         }
 

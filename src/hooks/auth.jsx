@@ -42,14 +42,14 @@ function AuthProvider ({children}){
             await api.put('/users,', user);
             localStorage.setItem('@rocknotes:user', JSON.stringify(user));
 
-            setData({user,token:data.token})
+            setData({user,token: data.token});
             alert('Perfil Atualizado!!');
 
              }catch(error){
              if(error.response){
               alert (error.response.data.message);
              }else{
-              alert('Não foi possível atualizar o perfil ')
+              alert('Não foi possível atualizar o perfil.')
              }
             }
        }
