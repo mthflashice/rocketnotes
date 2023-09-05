@@ -28,10 +28,10 @@ export  function Profile(){
             password: passwordNew,
             old_passwordOld: passwordOld,
 
-        }
+        };
 
 
-        await updateProfile({user,avatarFile})
+        await updateProfile({user,avatarFile});
     }
 
     function handleChangeAvatar(event){
@@ -66,12 +66,13 @@ export  function Profile(){
                      />
                  </label>
             </Avatar>
+
             <Input
             placeholder= 'Nome'
             type='texto'
             icon={FiUser}
             value ={name}
-            onChange ={e=>setName(e.target.value) }
+            onChange ={e=>setName(e.target.value)}
             />
 
             <Input
@@ -79,25 +80,21 @@ export  function Profile(){
             type='text'
             icon={FiMail}
             value ={email}
-            onChange ={e=>setEmail(e.target.value) }
-
+            onChange ={e=>setEmail(e.target.value)}
             />      
 
             <Input
             placeholder= 'Senha atual'
             type='password'
             icon={FiLock}
-            onChange ={e=>setPasswordOld(e.target.value) }
-
+            onChange ={e=>setPasswordOld(e.target.value)}
             />   
 
             <Input
             placeholder= 'Nova Senha'
             type='password'
             icon={FiLock}
-            onChange ={e=>setPasswordNew(e.target.value) }
-            
-
+            onChange ={e=>setPasswordNew(e.target.value)}
             />          
 
             <Button title='Salvar' onClick ={handleUpdate}/>
