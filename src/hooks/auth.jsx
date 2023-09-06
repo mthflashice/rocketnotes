@@ -40,17 +40,18 @@ function AuthProvider ({children}){
 
         async function updateProfile({ user,avatarFile }) {
         try {
-//
-    if(avatarFile) {
-        const fileUploadForm = new FormData()
-        fileUploadForm.append("avatar", avatarFile)
 
-        const response = await api.patch("/users/avatar", fileUploadForm)
-        user.avatar = response.data.avatar
+    if(avatarFile) {
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("avatar", avatarFile);
+
+        const response = await api.patch('/users/avatar', fileUploadForm);//
+        user.avatar = response.data.avatar;
 
       }
           
       //
+    
             await api.put("/users", user );
             localStorage.setItem("@RocketNotes:user", JSON.stringify(user));
 
@@ -92,7 +93,7 @@ function AuthProvider ({children}){
             signOut,
             updateProfile,
             
-            user:data.user,
+            user:data.user
          }}>
             {children}               
         </AuthContext.Provider>
