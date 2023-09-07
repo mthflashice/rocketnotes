@@ -3,52 +3,56 @@ import  styled  from "styled-components";
 
 
 export const Container = styled.div`
-    width:100%;
+    width: 100%;
 
     >header{
-        width:100%;
-        height:144px;
-        background: ${({theme})=>theme.COLORS.BACKGROUND_900};
+      width: 100%;
+      height: 14.4vh;
 
-        display:flex;
-        align-items:center;
+      background: ${({theme}) => theme.COLORS.BACKGROUND_900};
 
-        padding:0 124px;
-        
-        svg{
-            color:${({theme})=>theme.COLORS.GRAY_100}
-        }
+      display: flex;
+      align-items: center;
 
+      padding: 0 12.4rem;
+
+      >button{
+      background: none;
+      border: none;
+    }
+    }
+
+    svg{
+      color: ${({theme}) => theme.COLORS.GRAY_100};
+      font-size: 2.4rem;
     }
 `;
 
-export const Form=styled.form`
- max-width:340px;
- margin:30px auto 0;
+export const Form = styled.form`
+  max-width: 34.0rem;
+  margin: 3.0rem auto 0;
 
->div:nth-child(4){
- margin-top: 24px;
-}
-
-
+  >div:nth-child(3){
+    margin-top: 2.4rem;
+  }
 `;
 
-export const Avatar =styled.div`
- position:relative;
- margin: -125px auto 32px;
+export const Avatar = styled.div`
+    position: relative;
+    margin: -9rem auto 3.2rem;
 
- width:186px;
- height: 186px;
+    width: 18.6rem;
+    height: 18.6rem;
+
  >img{
-    border-radius:50%;
-    width:186px;
-    height: 186px;
-
- }
+      width: 18.6rem;
+      height: 18.6rem;
+      border-radius: 50%;
+    }
 
  >label{
-    width:48px;
-    height:48px;
+      width: 4.8rem;
+      height: 4.8rem;
     
     background-color:${({theme})=>theme.COLORS.ORANGE};
     border-radius:50%;
@@ -57,9 +61,9 @@ export const Avatar =styled.div`
     align-items:center;
     justify-content:center;
 
-    position:absolute;
-    bottom:7px;
-    right: 7px;
+    position: absolute;
+    bottom: 0.7rem;
+    right: 0.7rem;
     
     cursor:pointer;
 
