@@ -13,8 +13,8 @@ export  function Profile(){
 
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
-    const [passwordOld, setPasswordOld] = useState();
-    const [passwordNew, setPasswordNew] = useState();
+    const [passwordOld, setPasswordOld] = useState('');
+    const [passwordNew, setPasswordNew] = useState('');
 
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
