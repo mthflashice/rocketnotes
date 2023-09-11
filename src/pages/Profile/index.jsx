@@ -3,7 +3,7 @@ import { Container,Form,Avatar } from "./styles";
 import {FiArrowLeft,FiMail, FiLock,FiUser,FiCamera} from 'react-icons/fi'
 import{Input} from '../../components/Input'
 import { Button } from "../../components/Button"
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import{useAuth} from '../../hooks/auth'
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 import {api} from '../../services/api'
@@ -63,7 +63,7 @@ export  function Profile(){
           </button>
          </header>
   
-        <Form>
+        
             <Avatar>
                 <img 
                  src={ avatar }
@@ -79,6 +79,8 @@ export  function Profile(){
                      />
                  </label>
             </Avatar>
+
+            <Form>
 
             <Input
             placeholder= 'Nome'
@@ -100,14 +102,14 @@ export  function Profile(){
             placeholder= 'Senha atual'
             type='password'
             icon={FiLock}
-            onChange ={e=>setPasswordOld(e.target.value)}
+            onChange={e=>setPasswordOld(e.target.value)}
             />   
 
             <Input
             placeholder= 'Nova Senha'
             type='password'
             icon={FiLock}
-            onChange ={e=>setPasswordNew(e.target.value)}
+            onChange={e=>setPasswordNew(e.target.value)}
             />          
 
             <Button title='Salvar' onClick ={handleUpdate}/>

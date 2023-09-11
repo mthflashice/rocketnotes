@@ -11,16 +11,15 @@ function AuthProvider ({children}){
     async function signIn({email, password}){
 
             try{
-             const response = await api.post('/sessions',{email,password});
+             const response = await api.post('./sessions',{email,password});
              const{user, token} = response.data;
 
-             localStorage.setItem('@rocknotes:user', JSON.stringify(user));
-             localStorage.setItem('@rocknotes:token', token);
-
-             
              api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-             
              setData({user, token});
+
+             localStorage.setItem('@rocknotes:user', JSON.stringify(user));
+             localStorage.setItem('@rocknotes:token', (token));
+
 
 
              }catch(error){
@@ -32,10 +31,10 @@ function AuthProvider ({children}){
             }
          }    
 
-        function signOut(){
+       async function signOut(){
        localStorage.removeItem('@rocknotes:token');
        localStorage.removeItem('@rocknotes:user');
-       setData({})
+       setData({});
         };
 
         async function updateProfile({ user,avatarFile }) {
@@ -47,13 +46,14 @@ function AuthProvider ({children}){
 
         const response = await api.patch('/users/avatar', fileUploadForm);//
         user.avatar = response.data.avatar;
+        console.log = response.data.avatar
 
       }
           
       //
     
-            await api.put("/users", user );
-            localStorage.setItem("@RocketNotes:user", JSON.stringify(user));
+            await api.put('/users', user );
+            localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
 
             setData({ user, token: data.token })
 
@@ -75,12 +75,12 @@ function AuthProvider ({children}){
             const token = localStorage.getItem('@rocknotes:token');
             const user = localStorage.getItem('@rocknotes:user');
 
-            if(token && user){
+            if(user && token){
                 api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
                 setData({
                     token,
-                    user: JSON.parse(user )
+                    user: JSON.parse(user)
                 });
             }
 
@@ -93,8 +93,7 @@ function AuthProvider ({children}){
             signOut,
             updateProfile,
             
-            user:data.user
-         }}>
+            user:data.user}}>
             {children}               
         </AuthContext.Provider>
 
