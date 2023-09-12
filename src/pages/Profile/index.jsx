@@ -27,16 +27,18 @@ export  function Profile(){
     const [avatarFile, setAvatarFile] = useState(null);
 
     async function handleUpdate(){
-        const user ={ 
-            name,
-            email,
-            password: passwordNew,
-            old_passwordOld: passwordOld
+        const updated = {
+          name,
+          email,
+          password: passwordNew,
+          old_password: passwordOld
+        }
 
-        };
+        const userUpdated = Object.assign(user, updated);
 
 
-        await updateProfile({user,avatarFile});
+
+        await updateProfile({user: userUpdated,avatarFile});
     }
 
     function handleChangeAvatar(event){
