@@ -1,4 +1,4 @@
-import{FiPlus, FiSearch} from 'react-icons/fi';
+import {FiPlus, FiSearch} from 'react-icons/fi';
 import {Container, Brand, Menu, Search, Content, NewNote} from './styles';
 
 import { Header } from '../../components/Header';
@@ -10,6 +10,7 @@ import { Note } from '../../components/Note';
 import { Section } from '../../components/Section';
 import { api } from '../../services/api';
 import { useState, useEffect } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 
 
@@ -20,11 +21,16 @@ export  function Home(){
     const [tagsSelected, setTagsSelected] = useState([]);
     const [search, setSearch] = useState('');
     const [notes, setNotes] = useState([]);
+    const navigate = useNavigate
 
 
 
 
     function handleTagsSelected(tagName){
+        if(tagName==='all'){
+            return setTagsSelected([]);
+        }
+
         const alreadySelected = tagsSelected.includes(tagName)
         if (alreadySelected){
 
@@ -35,6 +41,11 @@ export  function Home(){
             setTagsSelected(prevState=>[...prevState, tagName]);
 
         }
+    }
+
+    function handleDetails(id){
+        navigate(`/Details${id}`)
+
     }
 
 
@@ -59,7 +70,7 @@ export  function Home(){
 
         fetchNotes()
 
-    },[tagsSelected,search]);
+    }, [tagsSelected,search]);
 
     return(
         <Container>
@@ -98,7 +109,7 @@ export  function Home(){
             <Search>
             <Input placeholder='Pesquisar pelo Título'
                  icon={FiSearch}
-                 onChange = {()=> setSearch(e.target.value)}
+                 onChange = {(e)=> setSearch(e.target.value)}
 
                 />
             </Search>
@@ -110,10 +121,11 @@ export  function Home(){
                         <Note 
                         key={String(note.id)}
                         data={note}
+                        onClick ={()=>handleDetails(note.id)}
                     />
                     ))
                     }
-<Note data={{
+                        <Note data={{
                         title:'React',
                         tags:[
                             {id:'1', name: 'react'},
