@@ -4,4 +4,4 @@ export const api = axios.create({
     baseURL:'http://localhost:3000'
 });
 
-api.get('/user/:id')
+// api.get('/user/:id')

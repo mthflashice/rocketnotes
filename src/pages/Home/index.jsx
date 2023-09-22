@@ -21,15 +21,15 @@ export  function Home(){
     const [tagsSelected, setTagsSelected] = useState([]);
     const [search, setSearch] = useState('');
     const [notes, setNotes] = useState([]);
-    const navigate = useNavigate
+    const navigate = useNavigate ();
 
 
 
 
-    function handleTagsSelected(tagName){
-        if(tagName==='all'){
-            return setTagsSelected([]);
-        }
+    function handleTagsSelected(tagName) {
+		if (tagName === "all") {
+			return setTagsSelected([]);
+		}
 
         const alreadySelected = tagsSelected.includes(tagName)
         if (alreadySelected){
