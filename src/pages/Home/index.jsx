@@ -84,7 +84,7 @@ export  function Home(){
                 <li><ButtonText title ='Todos' 
                  onClick={()=>handleTagsSelected('all')}
 
-                 isActive={tagsSelected.length===0}
+                 $isActive={tagsSelected.length===0}
 
                 />
                 </li>
@@ -95,7 +95,7 @@ export  function Home(){
                     <ButtonText 
                     title ={tag.name}
                     onClick={()=>handleTagsSelected(tag.name)}
-                    isActive={tagsSelected.includes(tag.name)}
+                    $isActive={tagsSelected.includes(tag.name)}
                     />
                     </li>
                 ))

@@ -19,8 +19,19 @@ import { useParams,useNavigate } from 'react-router-dom';
     const navigate = useNavigate()
 
     function handleBack(){
-      navigate('/'); 
+      navigate(-1); 
+    }
 
+    async function handleRemove(){
+      const confirm = window.confirm('Deseja Remover a nota?');
+
+      if(confirm){
+        await api.delete(`/notes${params.id}`)
+        alert (`Nota Removida,
+        com  Sucesso!!`)
+        navigate (-1);
+
+      }
     }
     
     useEffect(()=>{
@@ -30,21 +41,23 @@ import { useParams,useNavigate } from 'react-router-dom';
       }
       fetchNote()
 
-    }, [])
+    }, []);
 
     const params = useParams()
  
   return(
     <Container>
       <Header />
-     {data &&
-     <main>
+     {
+      data &&
+      <main>
         <Content>
 
         
     
 
-      <ButtonText title='Excluir Nota'/>
+      <ButtonText title='Excluir Nota'
+      onClick ={handleRemove}/>
       <h1>
         {data.title}
       </h1>
