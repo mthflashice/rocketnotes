@@ -43,7 +43,7 @@ export function New() {
     setNewTag("");
   }
 
-  function hancleRemoveTag(deleted) {
+  function handleRemoveTag(deleted) {
     setTags(prevState => prevState.filter(tag => tag !== deleted));
   }
 
@@ -53,11 +53,13 @@ export function New() {
     }
     
     if (newLink) {
-      return alert("Você deixou um link no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campos vazio.")
+      return alert(`Você deixou um link no campo para adicionar, mas não clicou em adicionar. 
+      Clique para adicionar ou deixe o campos vazio.`)
     }
     
     if (newTag) {
-      return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campos vazio.")
+      return alert(`Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. 
+      Clique para adicionar ou deixe o campos vazio.`)
     }
 
     await api.post("/notes", {
@@ -67,7 +69,7 @@ export function New() {
       links
     });
 
-    alert("Nota criada com sucesso!");
+    alert("Nota criada com sucesso!!");
     navigate(-1);
   }
 
@@ -122,7 +124,7 @@ export function New() {
                   <NoteItem
                     key={String(index)}
                     value={tag}
-                    onClick={() => hancleRemoveTag(tag)}
+                    onClick={() => handleRemoveTag(tag)}
 
                   />
                 ))
