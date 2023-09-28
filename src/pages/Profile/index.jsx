@@ -34,6 +34,7 @@ export  function Profile(){
         }
 
         const userUpdated = Object.assign(user, updated);
+        // return console.log(userUpdated)
 
 
 
