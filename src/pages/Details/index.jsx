@@ -17,6 +17,7 @@ import { useParams,useNavigate } from 'react-router-dom';
   export  function Details(){
     const [data, setData] = useState(null)
     const navigate = useNavigate()
+    const params = useParams()
 
     function handleBack(){
       navigate(-1); 
@@ -26,7 +27,7 @@ import { useParams,useNavigate } from 'react-router-dom';
       const confirm = window.confirm('Deseja Remover a nota?');
 
       if(confirm){
-        await api.delete(`/notes${params.id}`)
+        await api.delete(`/notes/${params.id}`)
         alert (`Nota Removida,
         com  Sucesso!!`)
         navigate (-1);
@@ -43,7 +44,6 @@ import { useParams,useNavigate } from 'react-router-dom';
 
     }, []);
 
-    const params = useParams()
  
   return(
     <Container>

@@ -31,7 +31,7 @@ export  function Home(){
 			return setTagsSelected([]);
 		}
 
-        const alreadySelected = tagsSelected.includes(tagName)
+        const alreadySelected = tagsSelected.includes(tagName);
         if (alreadySelected){
 
             const filteredTags = tagsSelected.filter(tag => tag !== tagName);
@@ -44,7 +44,7 @@ export  function Home(){
     }
 
     function handleDetails(id){
-        navigate(`/details${id}`)
+        navigate(`/details/${id}`)
 
     }
 
@@ -81,21 +81,22 @@ export  function Home(){
             <Header/>
 
             <Menu>
-                <li><ButtonText title ='Todos' 
-                 onClick={()=>handleTagsSelected('all')}
-
-                 $isActive={tagsSelected.length===0}
+                <li>
+                    <ButtonText 
+                    title ='Todos' 
+                    onClick={()=>handleTagsSelected('all')}
+                    $isActive={tagsSelected.length===0}
 
                 />
                 </li>
 
                 {
                     tags && tags.map(tag =>(
-                <li key={String(tag.id)}>
-                    <ButtonText 
-                    title ={tag.name}
-                    onClick={()=>handleTagsSelected(tag.name)}
-                    $isActive={tagsSelected.includes(tag.name)}
+                     <li key={String(tag.id)}>
+                     <ButtonText 
+                     title ={tag.name}
+                     onClick={()=>handleTagsSelected(tag.name)}
+                     $isActive={tagsSelected.includes(tag.name)}
                     />
                     </li>
                 ))
